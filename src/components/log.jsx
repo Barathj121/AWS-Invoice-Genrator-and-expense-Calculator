@@ -1,46 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Log = () => {
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const loginData = {
-      user_id: userId,
-      password: password,
-    };
-
-    const response = await fetch('https://invoiceforms-dbpush.onrender.com/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginData),
-    });
-
-    if (response.ok) {
-      alert('Login successful');
-    } else {
-      alert('Error logging in');
-    }
-  };
-
   return (
     <div className='login-page'>
       <div className='login-box'>
         <div className='header'>Login</div>
-        <form onSubmit={handleSubmit}>
+        <form action='https://invoiceforms-dbpush.onrender.com/login' method='POST'>
           <div className='description'>Welcome back!</div>
           <label className='input-labels'>User ID</label>
           <br />
           <input
             className='input-boxes'
             type='email'
+            name='user_id'
             placeholder='example: abcd@efgh.com'
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
+            required
           />
           <br />
           <label className='input-labels'>Password</label>
@@ -48,9 +22,9 @@ const Log = () => {
           <input
             className='input-boxes'
             type='password'
+            name='password'
             placeholder='********'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <br />
           <input className='submit-button' type='submit' value='Submit' />
