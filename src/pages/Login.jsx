@@ -1,10 +1,11 @@
 import React from 'react';
+import Log from '../components/log';
 
 function Login() {
 
     return (
-        <div>
-        <h1>Login</h1>
+        <div className='login'>
+        <Log/>
         </div>
     );
 }
