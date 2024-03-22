@@ -27,13 +27,25 @@ const Log = () => {
             required
           />
           <br />
+          <label className='input-labels'>Role</label>
+          <br />
+          <select className='input-boxes' name='role' required>
+            <option value=''>Select Role</option>
+            <option value='admin'>Finance Dept. Member</option>
+            <option value='user'>Employee</option>
+          </select>
+          <br />
           <input className='submit-button' type='submit' value='Submit' />
-          <hr />
+          <div className='register-link'>
+            Not yet registered? <a href='/register'>Register here</a>
+          </div>
+          <br/>
+          {/* <hr />
           <label className='google-label'>Google Sign in</label>
           <br />
           <button className='google-button'>
             <img src='src/img/images.jpeg' alt='' /> Sign in
-          </button>
+          </button> */}
         </form>
       </div>
       <div className='art-div'></div>

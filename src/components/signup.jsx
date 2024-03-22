@@ -7,19 +7,19 @@ const Signup = () => {
           <div className="header">
             Sign up
           </div>
-          <form action="">
+          <form action='https://invoiceforms-dbpush.onrender.com/signup' method='POST'>
             <label className='input-labels'>Name</label>
             <br/>
             <input className="input-boxes" type='text' placeholder='Name'></input>
             <br/>
-            <label className='input-labels'>Register as:</label> 
+            <label className='input-labels'>Register as (Role) :</label> 
+
             <br/>
-            <br/>
-            <input className='inp-radio' type='radio' id='emp'name='emp'/>
-            <label className='input-labels'for="emp"> Normal User    </label>
-            <input className='inp-radio' type='radio' id='emp'name='emp'/>
-            <label className='input-labels'for="emp"> Authorised Employee</label>
-            <br/>
+            <select className='input-boxes' name='role' required>
+            <option value=''>Select Role</option>
+            <option value='admin'>Finance Dept. Member</option>
+            <option value='user'>Employee</option>
+            </select>
             <br/>
             <label className='input-labels' >E-mail id</label>
             <br/>
