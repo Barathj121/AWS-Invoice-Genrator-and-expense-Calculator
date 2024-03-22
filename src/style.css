@@ -283,6 +283,159 @@
 }
 
 
+
+
+.register{
+    background-color: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.register .signup{
+    display: flex;
+    border-radius: 10px;
+}
+.register .signup-box{
+    flex: 1;
+    height: 80vh;
+    background-color: var(--secondary-color);  
+    padding: 80px 80px 150px 100px;
+
+}
+.register .signup-box .header{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.register .signup-box .input-labels{
+    background-color: white;
+    width: 120px; 
+    font-weight:600;
+
+
+}
+
+.register .signup-box .input-boxes {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 8px; 
+    width: 300px;
+    padding: 6px;
+    border-radius: 6px;
+    font-weight: 620;
+}
+.register .signup-box .submit-button {
+    padding: 12px;
+    width: 150px;
+    font-weight: 800;
+    border-radius:8px ;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+
+    
+}
+
+.register .art-div{
+    flex: 1;
+    background-color: var(--tertiary-color);
+    height: 80vh;
+    padding: 10px;
+
+    width: 500px;
+}
+
+
+.login{
+    background-color: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.login .login-page{
+    display: flex;
+    border-radius: 10px;
+}
+.login .login-page .login-box{
+    flex: 1;
+    height: 80vh;
+    background-color: var(--secondary-color);  
+    padding: 80px 80px 150px 100px;
+
+}
+.login .login-page .login-box .header{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.login .login-page .login-box .description{
+    font-weight: 800;
+    font-size:x-large;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+.login .login-page .login-box .input-labels{
+    background-color: white;
+    width: 120px; 
+    font-weight:600;
+
+
+}
+
+.login .login-page .login-box .input-boxes {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 8px; 
+    width: 300px;
+    padding: 6px;
+    border-radius: 6px;
+    font-weight: 620;
+}
+.login .login-page .login-box .submit-button {
+    padding: 12px;
+    width: 150px;
+    font-weight: 800;
+    border-radius:8px ;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-bottom: 10px;    
+}
+
+.login .login-page .login-box .google-label {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+
+    
+}
+.login .login-page .login-box .google-button {
+    padding: 12px;
+    width: 150px;
+    font-weight: 800;
+    border-radius:8px ;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-top: 15px;   
+
+}
+
+
+.login .login-page .art-div{
+    flex: 1;
+    display: flex;
+    background-color: var(--tertiary-color);
+    height: 80vh;
+    padding: 10px;
+    width: 500px;
+}
+
+
 @media (max-width: 768px){
     .home .home-container{
         flex-direction: column-reverse;
@@ -328,6 +481,11 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
+
+
+
+
 
 
     
