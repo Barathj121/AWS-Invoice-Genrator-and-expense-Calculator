@@ -1,18 +1,20 @@
-import React from 'react'
-import Sidebar from '../components/sidebar'
-import Input from '../components/input'
-import Icons from '../components/icons'
+import React, { useState } from 'react';
+import Sidebar from '../components/sidebar';
+import Input from '../components/input';
+import Icons from '../components/icons';
 
 const Home = () => {
+  const [data, setData] = useState(null);
+
   return (
     <div className="home">
       <Icons />
       <div className="home-container"> 
-        <Input />
-        <Sidebar />
+        <Input data={data} />
+        <Sidebar setData={setData} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

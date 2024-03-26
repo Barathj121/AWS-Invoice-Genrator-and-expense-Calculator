@@ -1,6 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel, EmailStr
-from typing import Optional
+from typing import Optional,Dict
 import psycopg2
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -58,6 +58,27 @@ async def create_invoice(invoice: Invoice):
     conn.close()
 
     return {"status": "Invoice created"}
+
+@app.post("/upload-image/")
+async def upload_image(file: UploadFile = File(...)) -> Dict:
+    return {
+        "invoice_number": "141671",
+        "bill_date": "2022-10-04",
+        "due_date": "2022-11-04",
+        "client_name": "Client Name",
+        "client_address": "Client Address",
+        "client_email": "client@example.com",
+        "client_phone": "1234567890",
+        "supplier_name": "Supplier Name",
+        "supplier_address": "Supplier Address",
+        "supplier_email": "supplier@example.com",
+        "supplier_phone": "0987654321",
+        "tax": 10.0,
+        "sub_total": 100.0,
+        "grand_total": 110.0,
+        "remark": "Sample remark",
+        "image": file.filename
+    }
 
 
 # {

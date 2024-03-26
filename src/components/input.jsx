@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
-const Input = () => {
+const Input = ({data}) => {
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [billDate, setBillDate] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -17,6 +17,27 @@ const Input = () => {
   const [grandTotal, setGrandTotal] = useState("");
   const [remark, setRemark] = useState("");
   const [image, setImage] = useState("None");
+
+  useEffect(() => {
+    if (data) {
+      setInvoiceNumber(data.invoice_number || "");
+      setBillDate(data.bill_date || "");
+      setDueDate(data.due_date || "");
+      setClientName(data.client_name || "");
+      setClientAddress(data.client_address || "");
+      setClientEmail(data.client_email || "");
+      setClientPhone(data.client_phone || "");
+      setSupplierName(data.supplier_name || "");
+      setSupplierAddress(data.supplier_address || "");
+      setSupplierEmail(data.supplier_email || "");
+      setSupplierPhone(data.supplier_phone || "");
+      setTax(data.tax || "");
+      setSubTotal(data.sub_total || "");
+      setGrandTotal(data.grand_total || "");
+      setRemark(data.remark || "");
+      setImage(data.image || "None");
+    }
+  }, [data]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
