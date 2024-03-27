@@ -595,3 +595,119 @@
     
 
 }
+
+
+/* Dept page */
+
+.dept{
+    background-color: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.dept .container {
+    height: 90vh;
+    padding: 40px 80px 80px 80px;
+    background-color: var(--secondary-color);
+    overflow-y: scroll;
+    border-radius: 6px;
+    border: 2px solid;
+  }
+  
+  .dept .container::-webkit-scrollbar {
+    width: 12px; /* width of the scrollbar */
+  }
+  
+  .dept .container::-webkit-scrollbar-track {
+    background: var(--secondary-color); /* color of the track */
+  }
+  
+  .dept .container::-webkit-scrollbar-thumb {
+    background: #888; /* color of the scrollbar */
+    border-radius: 6px; /* roundness of the scrollbar thumb */
+  }
+  
+  .dept .container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* color of the scrollbar thumb on hover */
+  }
+  
+
+.dept .container .header{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.dept .container .list{
+    padding-left: auto;
+    font-weight:600;
+    margin-right: auto;
+}
+
+.dept .container .list .emp-entry{
+    display: flex;
+    margin-top: 50px;
+    border: solid 2px ;
+    padding: 16px;
+    border-radius: 20px;
+    background-color: var(--tertiary-color);
+
+}
+.dept .container .list .emp-entry .emp-details{
+    float: left;
+    width: 50%;
+    
+}
+.dept .container .list .emp-entry .button-container button{
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: black;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.dept .container .list .emp-entry .button-container button:hover {
+
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: 700;  /* Adjust hover color as needed */
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+.dept .container .list .emp-entry .button-container{
+    float: right;
+  width: 50%;
+}
+
+
+.dept .container .overlay{
+    background-color: var(--tertiary-color);
+    justify-content: center;
+}
+
+.dept .overlay button{
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 6px;
+
+}
+
+@media only screen and (max-width: 768px) {
+    .dept .container .list .emp-entry {
+      display: flex;
+      flex-direction: column;  /* Stack elements vertically on small screens */
+    }
+    .dept .container .list .emp-entry .emp-details,
+    .dept .container .list .emp-entry .button-container {
+      width: 100%;  /* Make elements take full width on small screens */
+    }
+  }
+  
