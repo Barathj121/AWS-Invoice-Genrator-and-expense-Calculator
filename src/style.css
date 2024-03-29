@@ -634,10 +634,11 @@
 .dept .container {
     height: 90vh;
     padding: 40px 80px 80px 80px;
-    background-color: var(--secondary-color);
+    background-color: var(--tertiary-color);
     overflow-y: scroll;
-    border-radius: 6px;
-    border: 2px solid;
+    border-radius: 20px;
+    
+    width: 1000px;
   }
   
   .dept .container::-webkit-scrollbar {
@@ -659,14 +660,16 @@
   
 
 .dept .container .header{
+
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 15px;
 }
 
 .dept .container .list{
+    
     padding-left: auto;
-    font-weight:600;
+    font-weight:850;
     margin-right: auto;
 }
 
@@ -674,9 +677,10 @@
     display: flex;
     margin-top: 50px;
     border: solid 2px ;
+    border-color: var(--primary-color);
     padding: 16px;
     border-radius: 20px;
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
 
 }
 .dept .container .list .emp-entry .emp-details{
@@ -684,20 +688,38 @@
     width: 50%;
     
 }
-.dept .container .list .emp-entry .button-container button{
-    padding: 5px;
+.dept .container .list .emp-entry .button-container .acc{
+    padding: 3px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: var(--secondary-color);
-    color: black;
+    background-color: green;
+    color: var(--secondary-color);
     font-weight: 700;
     border-radius: 6px;
 }
-
-.dept .container .list .emp-entry .button-container button:hover {
-
+.dept .container .list .emp-entry .button-container .rej{
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: red;
+    color: var(--secondary-color);
+    font-weight: 700;
+    border-radius: 6px;
+}
+.dept .container .list .emp-entry .button-container .view{
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    font-weight: 700;
+    border-radius: 6px;
+}
+.dept .container .list .emp-entry .button-container button:hover {
+
+    
+    background-color: var(--secondary-color);
+    color: black;
     font-weight: 700;  /* Adjust hover color as needed */
     cursor: pointer;
     border-radius: 6px;
@@ -710,7 +732,7 @@
 
 
 .dept .container .overlay{
-    background-color: var(--tertiary-color);
+
     justify-content: center;
 }
 
@@ -721,6 +743,16 @@
     font-weight: 700;
     border-radius: 6px;
 
+}
+.dept .overlay .left{
+    padding: 20px;
+    height: 90vh;
+    background-color: var(--secondary-color);
+}
+.dept .overlay .right{
+    padding: 20px;
+    background-color: var(--tertiary-color);
+    height: 90vh;
 }
 
 @media only screen and (max-width: 768px) {
