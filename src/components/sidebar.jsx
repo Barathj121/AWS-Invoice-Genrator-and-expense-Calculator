@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './styles.css';
 
-const Sidebar = ({ setData }) => {
+const Sidebar = ({ setData, setUploadedFile }) => {
   const [loading, setLoading] = useState(false);
 
   const handleFileUpload = async (event) => {
     setLoading(true); // Set loading to true when the upload starts
 
     const file = event.target.files[0];
+    setUploadedFile(file);
     const formData = new FormData();
     formData.append('file', file);
 

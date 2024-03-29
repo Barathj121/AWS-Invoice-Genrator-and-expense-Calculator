@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 const Log = () => {
   let navigate = useNavigate(); 
+ 
 
-  const dashboard = () =>{
-    let path = "/Home"
+  const [role, setRole] = useState("");
+  const dashboard = () => {
+    let path = role === 'admin' ? "/Dept" : "/Home";
     navigate(path);
   }
 
@@ -28,6 +30,7 @@ const Log = () => {
     };
 
     const response = await fetch("https://login-backend-m1qk.onrender.com/api/token", requestOptions);
+   
     const data = await response.json();
 
     if (!response.ok) {
@@ -93,7 +96,7 @@ const Log = () => {
           <br />
           <label className='input-labels'>Role</label>
           <br />
-          <select className='input-boxes' name='role' required>
+          <select className='input-boxes' name='role' required onChange={(e) => setRole(e.target.value)}>
             <option value=''>Select Role</option>
             <option value='admin'>Finance Dept. Member</option>
             <option value='user'>Employee</option>

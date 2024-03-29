@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 
-const Input = ({data}) => {
+const Input = ({data,uploadedFile}) => {
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [billDate, setBillDate] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -17,9 +17,32 @@ const Input = ({data}) => {
   const [grandTotal, setGrandTotal] = useState("");
   const [remark, setRemark] = useState("");
   const [image, setImage] = useState("None");
+  const [userID, setUserID] = useState(null);
+  const [EmployeeID, setEmployeeID] = useState("");
+  const [ufile, setufile] = useState(null);
+
+  const getUser = async() =>{
+    const requestOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("LoginToken")
+        }
+      };
+  
+      const userIDresp = await fetch("https://login-backend-m1qk.onrender.com/api/users/me", requestOptions);
+      const userID = await userIDresp.json();
+      console.log(userID);
+      setUserID(userID);
+  
+    };
+    useEffect(()=> {
+        getUser();
+      },[]);
 
   useEffect(() => {
-    if (data) {
+    if (data && uploadedFile && userID) {
+      
       setInvoiceNumber(data.invoice_number || "");
       setBillDate(data.bill_date || "");
       setDueDate(data.due_date || "");
@@ -36,47 +59,54 @@ const Input = ({data}) => {
       setGrandTotal(data.grand_total || "");
       setRemark(data.remark || "");
       setImage(data.image || "None");
+      setEmployeeID(userID.id || "");
+      setufile(uploadedFile || null);
+      console.log(uploadedFile);
+      
     }
-  }, [data]);
+  }, [data, userID,uploadedFile]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  
 
-    const invoice = {
-      invoice_number: invoiceNumber,
-      bill_date: billDate,
-      due_date: dueDate,
-      client_name: clientName,
-      client_address: clientAddress,
-      client_email: clientEmail,
-      client_phone: clientPhone,
-      supplier_name: supplierName,
-      supplier_address: supplierAddress,
-      supplier_email: supplierEmail,
-      supplier_phone: supplierPhone,
-      tax: tax,
-      sub_total: subTotal,
-      grand_total: grandTotal,
-      remark: remark,
-      image: image
-    };
+  
 
-    const response = await fetch("https://invoiceforms-dbpush.onrender.com/invoices", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(invoice)
-    });
-
-    if (response.ok) {
-      console.log("Invoice created");
-      alert("Invoice created");
-    } else {
-      console.error("Error creating invoice");
-      alert("Error creating invoice");
-    }
-  };
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+      
+        const formData = new FormData();
+      
+        formData.append('invoice_number', invoiceNumber);
+        formData.append('bill_date', billDate);
+        formData.append('due_date', dueDate);
+        formData.append('client_name', clientName);
+        formData.append('client_address', clientAddress);
+        formData.append('client_email', clientEmail);
+        formData.append('client_phone', clientPhone);
+        formData.append('supplier_name', supplierName);
+        formData.append('supplier_address', supplierAddress);
+        formData.append('supplier_email', supplierEmail);
+        formData.append('supplier_phone', supplierPhone);
+        formData.append('tax', tax);
+        formData.append('sub_total', subTotal);
+        formData.append('grand_total', grandTotal);
+        formData.append('remark', remark);
+        formData.append('image', image);
+        formData.append('employee_id', userID.id);
+        formData.append('file', ufile);
+      
+        const response = await fetch("/invoices", {
+          method: 'POST',
+          body: formData
+        });
+      
+        if (response.ok) {
+          console.log("Invoice created");
+          alert("Invoice created");
+        } else {
+          console.error("Error creating invoice");
+          alert("Error creating invoice");
+        }
+      };
 
   return (
     <div className='input'>

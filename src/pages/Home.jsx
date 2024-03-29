@@ -5,31 +5,14 @@ import Iconshome from '../components/iconshome';
 
 const Home = () => {
   const [data, setData] = useState(null);
-
-  const getUser = async() =>{
-    const requestOptions = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("LoginToken")
-        }
-      };
-  
-      const userIDresp = await fetch("https://login-backend-m1qk.onrender.com/api/users/me", requestOptions);
-      const userID = await userIDresp.json();
-      console.log(userID);
-  
-    };
-    useEffect(()=> {
-        getUser();
-      },[]);
+  const [uploadedFile, setUploadedFile] = useState(null);
 
   return (
     <div className="home">
       <Iconshome />
       <div className="home-container"> 
         <Input data={data} />
-        <Sidebar setData={setData} />
+        <Sidebar setData={setData} setUploadedFile={setUploadedFile} />
       </div>
     </div>
   );
