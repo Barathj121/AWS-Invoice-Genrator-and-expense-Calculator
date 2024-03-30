@@ -13,7 +13,7 @@ const Sidebar = ({ setData, setUploadedFile }) => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/process_file/', {
+      const response = await fetch('http://faunadive.abhinavramakrishnan.tech:8002/process_file/', {
         method: 'POST',
         body: formData,
       });
