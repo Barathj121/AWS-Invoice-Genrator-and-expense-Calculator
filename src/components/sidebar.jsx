@@ -24,8 +24,8 @@ const Sidebar = ({ setData, setUploadedFile }) => {
       }
 
       const data = await response.json();
-      setData(data.result);
-      console.log(data.result);
+      setData(data.result.cities[0]);
+      console.log(data.result.cities[0]);
     } catch (error) {
       console.error('Error occurred during upload:', error);
     } finally {
