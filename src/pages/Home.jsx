@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home">
       <Iconshome />
       <div className="home-container"> 
-        <Input data={data} />
+        <Input data={data} uploadedFile={uploadedFile} />
         <Sidebar setData={setData} setUploadedFile={setUploadedFile} />
       </div>
     </div>

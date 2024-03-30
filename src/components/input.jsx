@@ -42,6 +42,7 @@ const Input = ({data,uploadedFile}) => {
 
   useEffect(() => {
     if (data && uploadedFile && userID) {
+     
       
       setInvoiceNumber(data.invoice_number || "");
       setBillDate(data.bill_date || "");
@@ -60,11 +61,11 @@ const Input = ({data,uploadedFile}) => {
       setRemark(data.remark || "");
       setImage(data.image || "None");
       setEmployeeID(userID.id || "");
-      setufile(uploadedFile || null);
-      console.log(uploadedFile);
+
+     
       
     }
-  }, [data, userID,uploadedFile]);
+  }, [data]);
 
   
 
@@ -92,9 +93,9 @@ const Input = ({data,uploadedFile}) => {
         formData.append('remark', remark);
         formData.append('image', image);
         formData.append('employee_id', userID.id);
-        formData.append('file', ufile);
+        formData.append('file', uploadedFile);
       
-        const response = await fetch("/invoices", {
+        const response = await fetch("https://invoiceforms-dbpush.onrender.com/invoices", {
           method: 'POST',
           body: formData
         });
