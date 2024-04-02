@@ -41,10 +41,10 @@ const Sidebar = ({ setData, setUploadedFile }) => {
             <div className="loader"></div>
           </div>
         )}
-        <label htmlFor="upload" className="upload">
-          <span>Upload Invoice</span>   
-          <input type="file" id="upload" name="upload" className="upload" style={{display: "none"}} onChange={handleFileUpload}/> 
-        </label>
+        {/* <label htmlFor="upload" className="upload">
+          <span>Upload Invoice</span>    */}
+          <input type="file" id="upload" name="upload" className="upload" onChange={handleFileUpload}/> 
+        {/* </label> */}
       </div>
     </div>
   );
