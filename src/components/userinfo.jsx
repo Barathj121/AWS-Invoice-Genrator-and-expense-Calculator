@@ -59,19 +59,19 @@ const UserInfo = ({ invoiceCount, employeedetails }) => {
                 <div className="userinfo-details">
                     <div className="user-info">
                         <div className="user-name">
-                            <span>Name:</span> <input type="text" value={name } onChange={e => setName(e.target.value)} defaultValue="Fname Lname" />
+                            <span>Name</span> <input type="text" value={name } onChange={e => setName(e.target.value)} defaultValue="Fname Lname" />
                         </div>
                         <div className="user-phone">
-                            <span>Phone:</span> <input type="tel" value={phone } onChange={e => setPhone(e.target.value)} defaultValue="Phone no" />
+                            <span>Phone</span> <input type="tel" value={phone } onChange={e => setPhone(e.target.value)} defaultValue="Phone no" />
                         </div>
                         <div className="user-email">
-                            <span>Email:</span> <input type="email" value={email } onChange={e => setEmail(e.target.value)} defaultValue="Email" />
+                            <span>Email</span> <input type="email" value={email } onChange={e => setEmail(e.target.value)} defaultValue="Email" />
                         </div>
                         <div className="user-address">
-                            <span>Address:</span> <input type="text" value={address } onChange={e => setAddress(e.target.value)} defaultValue="Address" />
+                            <span>Address</span> <input type="text" value={address } onChange={e => setAddress(e.target.value)} defaultValue="Address" />
                         </div>
                         <div className="">
-                            <span>Employee Department:</span> <input type="text" value={dept } onChange={e => setDept(e.target.value)} defaultValue="Department" />
+                            <span>Employee Department</span> <input type="text" value={dept } onChange={e => setDept(e.target.value)} defaultValue="Department" />
                         </div>
                         <div className="user-invoices">
                             <span>Total Invoices Uploaded:</span> {invoiceCount}
