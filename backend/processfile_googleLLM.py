@@ -28,7 +28,7 @@ from haystack import Pipeline
 from haystack_integrations.components.generators.google_ai import GoogleAIGeminiGenerator
 
 # Set Google API key
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBywlG-tTZrsOlLrrdyRtJFId4yD-S-LC8"
+os.environ["GOOGLE_API_KEY"] = env.apikey
 
 # Set logging configuration
 logging.basicConfig()
