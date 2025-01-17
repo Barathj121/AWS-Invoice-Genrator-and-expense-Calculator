@@ -144,4 +144,4 @@ Haystack Pipeline Diagram
 ![Finance Dashboard (Mobile)](https://github.com/user-attachments/assets/01273b2b-48bc-4398-8973-666aaa9d0e27)  
 *For finance teams to review, approve, and manage invoices.*
 
----
+
